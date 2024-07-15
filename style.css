@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.container {
+    background: url('stopwatch.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper p {
+    position: relative;
+    display: inline-block;
+    color: #ffffff; /* White text */
+    z-index: 9999;
+    font-size: 48px;
+    margin-bottom: 60px; /* Increased margin to create more space */
+}
+
+.wrapper p::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(112, 111, 111, 0.8); /* Background color for the circle */
+    z-index: -1;
+    border-radius: 50%;
+    left: -10%;
+    top: -150%; /* Adjusted to increase distance from top */
+    animation-name: shine;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+    0%, 100% {
+        box-shadow: 0px 0px 32px -12px #e4e4e4; /* Light gray shadow */
+    }
+    50% {
+        box-shadow: 0px 0px 32px 3px #e4e4e4; /* Light gray shadow */
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased gap between buttons */
+    margin-bottom: 60px; /* Increased margin to create more space */
+}
+
+button {
+    background-color: #4e4e51; /* Dark blue */
+    padding: 20px 38px; /* Adjusted padding for size */
+    border: 1px solid #A9A9A9; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    color: #fff; /* White text */
+    transition: all .2s ease;
+    outline: 0;
+    width: auto; /* Allow button width to adjust based on content */
+    cursor: pointer; /* Ensure cursor changes on hover */
+}
+
+button:hover,
+button:focus {
+    border-color: #C0C0C0; /* Gray border on hover */
+    color: #C0C0C0; /* Gray text on hover */
+    box-shadow: 0px 4px 27px -12px #C0C0C0; /* Gray shadow on hover */
+}
+
+.laps {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(112, 111, 111, 0.8); /* Darker semi-transparent background */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.laps h3 {
+    color: #ffffff; /* White text */
+    margin-bottom: 20px; /* Increased margin to create more space */
+}
+
+.lap-times {
+    width: 90%;
+    max-height: 200px; /* Set a max height for scrolling */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; /* White text */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.lap-header {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #A9A9A9; /* Light gray border */
+}
+
+.lap-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.lap-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+    padding: 15px; /* Adjusted padding for more spacing */
+    background: #333; /* Darker background for lap items */
+    border: 1px solid #A9A9A9; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners */
+    margin-top: 15px; /* Increased margin between lap items */
+}
